@@ -1,0 +1,218 @@
+.room-card-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    gap: 16px; /* Adjust spacing between cards */
+    margin: 50px 16px; /* Add horizontal margin */
+}
+
+@media (max-width: 768px) {
+    .room-card-list {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards per row for tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .room-card-list {
+        grid-template-columns: 1fr; /* 1 card per row for mobile */
+    }
+}
+
+.room-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--color-secondary); /* Set background color */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    overflow: hidden;
+    height: 100%; /* Ensure the card takes full height */
+}
+
+.room-card:hover {
+    transform: scale(1.05); /* Scale effect on hover */
+    transition: transform 0.3s ease; /* Smooth transition */
+    background-color: var(--color-secondary);
+}
+
+.room-card-reversed {
+    display: flex; /* Ensure flex container */
+    flex-direction: column-reverse; /* Image above content */
+}
+
+@media (max-width: 480px) {
+    .room-card-reversed {
+        flex-direction: column; /* Default column layout for mobile */
+    }
+}
+
+.room-card-reversed img {
+    order: 1; /* Image above */
+}
+
+.room-card-reversed .room-card-content {
+    order: 2; /* Content below */
+}
+
+.room-card img {
+    width: 100%;
+    height: 30vh;
+    object-fit: cover;
+}
+
+.room-card p {
+    text-align: center;
+    margin: 0px;
+    padding: 0px 15px;
+    font-size: 1rem;
+}
+
+@media (max-width: 480px) {
+    .room-card p {
+        font-size: 0.9rem; /* Smaller font size for mobile */
+    }
+}
+
+.room-card h2 {
+    font-size: 1.5rem; /* Adjust font size */
+    margin: 8px 0; /* Add margin for spacing */
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .room-card h2 {
+        font-size: 1.2rem; /* Smaller font size for mobile */
+    }
+}
+
+.room-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 40vh;
+    text-align: center; /* Optional: Center align text */
+    padding: 16px;
+}
+
+@media (max-width: 480px) {
+    .room-card-content {
+        height: auto; /* Adjust height for mobile */
+        padding: 8px;
+    }
+}
+
+.room-card:nth-child(odd) .room-card-content {
+    order: 1; /* Content first */
+}
+
+.room-card:nth-child(odd) img {
+    order: 2; /* Image below */
+}
+
+.room-card:nth-child(even) .room-card-content {
+    order: 2; /* Content second */
+}
+
+.room-card:nth-child(even) img {
+    order: 1; /* Image above */
+}
+
+.filter-bar {
+    display: flex;
+    gap: 16px;
+    margin: 16px 16px 32px;
+    padding: 8px;
+    background-color: var(--color-secondary);
+    border-radius: 8px;
+}
+
+.filter-bar input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.filter-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Darker semi-transparent background */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-modal-content {
+    background-color: #ffffff; /* White background for contrast */
+    padding: 24px; /* Increased padding for better spacing */
+    border-radius: 12px; /* Softer rounded corners */
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+    animation: fadeIn 0.3s ease-in-out; /* Smooth fade-in animation */
+}
+
+.filter-modal-close {
+    display: block;
+    text-align: right;
+    margin-bottom: 16px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333; /* Darker color for better visibility */
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.filter-modal-close:hover {
+    color: #ff0000; /* Red color on hover for emphasis */
+}
+
+.filter-modal input {
+    width: 100%;
+    margin-bottom: 16px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.filter-modal button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--color-secondary);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-modal button:hover {
+    background-color: #333; /* Darker background on hover */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    .filter-bar {
+        display: none; /* Hide filter bar on mobile */
+    }
+
+    .filter-modal {
+        display: flex; /* Show modal on mobile */
+    }
+}

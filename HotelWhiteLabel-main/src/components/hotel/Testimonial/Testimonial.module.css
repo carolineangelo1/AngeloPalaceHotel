@@ -1,0 +1,56 @@
+.testimonial {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.testimonial h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.carousel {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.testimonialItem {
+    flex: 0 0 calc(20% - 20px); /* 5 items per row with spacing */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.text {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.author {
+    font-size: 0.9rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.stars {
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.star {
+    color: #FFD700; /* Gold color for stars */
+    font-size: 1.2rem;
+}
+
+.star.empty {
+    color: #ddd; /* Gray color for empty stars */
+}
